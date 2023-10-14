@@ -2,6 +2,7 @@ from enum import Enum
 import queue
 
 class alertType(Enum):
+    """ Class Docstring """
     # Lane based alerts
     LANE_CHANGE = 1
     # Speed based alerts
@@ -15,17 +16,22 @@ class alertType(Enum):
 
 
 class Alert():
+    """ Class Docstring """
     def __init__(self, alertType):
         self.alertType = alertType
 
 class Generator:
+    """ Class Docstring """
     def __init__(self):
+        """ Function Docstring """
         self.queuedAlerts = queue.Queue()
 
     def registerAlert(self, alertObject):
+        """ Function Docstring """
         self.queuedAlerts.put(alertObject)
 
     def processAlert(self):
+        """ Function Docstring """
         alert = self.queuedAlerts.get()
         print(alert)
         self.queuedAlerts.task_done()

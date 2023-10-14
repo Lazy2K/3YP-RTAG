@@ -9,7 +9,9 @@ alertGenerator = Generator()
 
 
 def runGenerator():
-    while True:
+    """ Docstring """
+    
+    while True: # We never know when we'll recieve a new alert so this must always be running
         alertGenerator.processAlert()
 
 def other():
@@ -23,13 +25,19 @@ if __name__ == "__main__":
     alertGenerator.registerAlert(alertType.LANE_CHANGE)
     alertGenerator.registerAlert(alertType.SEATBELT_DISCONNECTED)
 
-    t1 = threading.Thread(target=runGenerator)
-    t2 = threading.Thread(target=other)
+    threads = []
+    # Run alert generator module
+    threads.append(threading.Thread(target=runGenerator))
+    # Run lane detection module
+    threads.append(threading.Thread(target=other))
+    # Run speed detection module
+    # Run accelatomiter detection module
 
-    t1.start()
-    t2.start()
-
-    t1.join()
-    t2.join()
+    # Begin all threads
+    for thread in threads:
+        thread.start()
+    # Wait for all threads to finish
+    for thread in threads:
+        thread.join()
 
     print("Done")

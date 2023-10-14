@@ -1,5 +1,6 @@
-from modules.generator import generator
+from modules.generator.generator import *
 
-gen = generator.Generator
+gen = Generator()
 
-gen.alert()
+al = Alert(alertType.ACCELERATION_TOO_FAST)
+gen.registerAlert(al)

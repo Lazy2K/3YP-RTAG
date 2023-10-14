@@ -1,4 +1,5 @@
 from enum import Enum
+import queue
 
 class alertType(Enum):
     # Lane based alerts
@@ -19,10 +20,12 @@ class Alert():
 
 class Generator:
     def __init__(self):
-        self.queuedAlerts = [] # A list of alerts in a queue to be processed
+        self.queuedAlerts = queue.Queue()
 
-    def registerAlert(self, alert):
-        self.queuedAlerts.append(alert)
-        #do stuff then remove alert from queue and delete object
-        self.queuedAlerts.pop(alert)
-        del alert
+    def registerAlert(self, alertObject):
+        self.queuedAlerts.put(alertObject)
+
+    def processAlert(self):
+        alert = self.queuedAlerts.get()
+        print(alert)
+        self.queuedAlerts.task_done()

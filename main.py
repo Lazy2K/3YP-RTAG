@@ -7,6 +7,18 @@ import threading
 # Setup alert-generator object
 alertGenerator = Generator()
 
+# Live vehivce data
+physicalVehicleData = {
+    "speed": 0,
+    "rmp": 0,
+    "indicator": False
+}
+
+telematicVehicleData = {
+    "x-accelaration": 0,
+    "z-accelaration": 0
+}
+
 
 def runGenerator():
     """ Docstring """
@@ -19,6 +31,17 @@ def runGenerator():
 def other(generator):
     print("No")
     generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED)
+
+def runVehicleDataModule():
+    print(".")
+
+def runLaneDetectionModule():
+    print(".")
+
+def runAcceleromiterModule():
+    print(".")
+
+def
 
 
 if __name__ == "__main__":

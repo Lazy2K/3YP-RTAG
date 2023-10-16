@@ -14,22 +14,20 @@ def runGenerator():
     while True: # We never know when we'll recieve a new alert so this must always be running
         alertGenerator.processAlert()
 
-def other():
+
+# We can pass threaded functions the generator object so that it can add alerts to the queue when needed
+def other(generator):
     print("No")
+    generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED)
 
 
 if __name__ == "__main__":
-
-    alertGenerator.registerAlert(alertType.ACCELERATION_TOO_FAST)
-    alertGenerator.registerAlert(alertType.CORNER_TOO_HARD)
-    alertGenerator.registerAlert(alertType.LANE_CHANGE)
-    alertGenerator.registerAlert(alertType.SEATBELT_DISCONNECTED)
 
     threads = []
     # Run alert generator module
     threads.append(threading.Thread(target=runGenerator))
     # Run lane detection module
-    threads.append(threading.Thread(target=other))
+    threads.append(threading.Thread(target=other, args=(alertGenerator,)))
     # Run speed detection module
     # Run accelatomiter detection module
 
@@ -41,3 +39,4 @@ if __name__ == "__main__":
         thread.join()
 
     print("Done")
+    #print(alertGenerator.queuedAlerts)

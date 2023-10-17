@@ -23,7 +23,8 @@ telematicVehicleData = {
 def runGenerator():
     """ Docstring """
 
-    while True:  # We never know when we'll recieve a new alert so this must always be running
+    # We never know when we'll recieve a new alert so this must always be running
+    while True:  # Run checks here for any interupts or reasons to stop the generator
         alertGenerator.processAlert()
 
 

@@ -30,19 +30,21 @@ class Generator:
     def __init__(self):
         """ Function Docstring """
         try:
-            # Hard coding locations like this is probably not the best solution
+            # Hard-coding locations like this is probably not the best solution
             # Because we're defining the object in main.py so the path is from there
             # So this would completley break if an object is defined anywhere else
-            connection = sqlite3.connect("database/alerts/alerts.db").cursor()
-            connection.execute("")
+            self.connection = sqlite3.connect(
+                "database/alerts/alerts.db").cursor()
         except Exception as error:
             print(error)
+            raise Exception()
 
         self.queuedAlerts = queue.Queue()
 
     def registerAlert(self, alertObject):
         """ Function Docstring """
         self.queuedAlerts.put(alertObject)
+        self.connection.execute("")  # Add alert to sqlite database
 
     def processAlert(self):
         """ Function Docstring """

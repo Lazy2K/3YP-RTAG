@@ -44,10 +44,15 @@ class Generator:
     def registerAlert(self, alertObject):
         """ Function Docstring """
         self.queuedAlerts.put(alertObject)
-        self.connection.execute("")  # Add alert to sqlite database
+        alertObjectId = id(alertObject)
+        self.connection.execute("")
 
     def processAlert(self):
         """ Function Docstring """
-        alert = self.queuedAlerts.get()
-        print(alert)
+        alertObject = self.queuedAlerts.get()
+        print(alertObject)
+        alertObjectId = id(alertObject)
+        self.connection.execute("")
+        # Process alert
+        # Play sound
         self.queuedAlerts.task_done()

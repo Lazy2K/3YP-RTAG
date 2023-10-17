@@ -22,8 +22,8 @@ telematicVehicleData = {
 
 def runGenerator():
     """ Docstring """
-    
-    while True: # We never know when we'll recieve a new alert so this must always be running
+
+    while True:  # We never know when we'll recieve a new alert so this must always be running
         alertGenerator.processAlert()
 
 
@@ -32,16 +32,17 @@ def other(generator):
     print("No")
     generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED)
 
+
 def runVehicleDataModule():
     print(".")
+
 
 def runLaneDetectionModule():
     print(".")
 
+
 def runAcceleromiterModule():
     print(".")
-
-def
 
 
 if __name__ == "__main__":
@@ -62,4 +63,4 @@ if __name__ == "__main__":
         thread.join()
 
     print("Done")
-    #print(alertGenerator.queuedAlerts)
+    # print(alertGenerator.queuedAlerts)

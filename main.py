@@ -5,7 +5,12 @@ from modules.generator.generator import *
 import threading
 
 # Setup alert-generator object
-alertGenerator = Generator()
+alertGenerator = Generator("database/alerts/alerts.db")
+
+stuff = {
+    "changing_lane": False,
+    "indicating": False
+}
 
 # Live vehivce data
 physicalVehicleData = {
@@ -17,6 +22,11 @@ physicalVehicleData = {
 telematicVehicleData = {
     "x-accelaration": 0,
     "z-accelaration": 0
+}
+
+gpsCoordinates = {
+    "lattitude": "xyz",
+    "longditude": "zyx"
 }
 
 

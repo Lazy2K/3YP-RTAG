@@ -45,10 +45,12 @@ class Generator:
 
         self.queuedAlerts = queue.Queue()
 
-    def registerAlert(self, alertObject):
+    def registerAlert(self, alertObject, context=None):
         """ Function Docstring """
         self.queuedAlerts.put(alertObject)
         alertObjectId = id(alertObject)
+        if context:
+            print(context)
         self.cursor.execute(
             "INSERT INTO alerts (alertID, alertType, alertTime) VALUES ('" + str(alertObjectId) + "', '" + str(alertObject) + "','" + str(datetime.datetime.now()) + "')")
         self.connection.commit()

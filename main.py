@@ -24,7 +24,7 @@ def runGenerator():
 
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 def other(generator):
-    generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED)
+    generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED, "hello")
 
 
 def runVehicleDataModule():

@@ -9,6 +9,9 @@ import threading
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
 
+# Setup vehicle object
+vehicle = Vehicle()
+
 
 def runGenerator():
     """ Docstring """

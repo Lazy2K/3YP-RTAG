@@ -3,14 +3,14 @@ from dataclasses import dataclass
 
 @dataclass
 class Vehicle:
-    speed: int
-    rpm: int
+    speed: int = 0
+    rpm: int = 0
 
-    isSeatbelt: bool
-    isIndicating: bool
-    isChangingLane: bool
+    isSeatbelt: bool = False
+    isIndicating: bool = False
+    isChangingLane: bool = False
 
-    x-acceleration: float
-    z-acceleration: float
-    gps-latitude: str
-    gps-longitude: str
+    xAcceleration: float = 0.0
+    zAcceleration: float = 0.0
+    gpsLatitude: str = ""
+    gpsLongitude: str = ""

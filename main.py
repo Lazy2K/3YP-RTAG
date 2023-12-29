@@ -5,6 +5,7 @@ from modules.vehicle.vehicle import *
 
 # Remote and standard modules
 import threading
+from queue import Queue
 
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
@@ -23,7 +24,6 @@ def runGenerator():
 
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 def other(generator):
-    print("No")
     generator.registerAlert(alertType.SPEED_LIMIT_EXCEEDED)
 
 

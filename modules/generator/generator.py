@@ -1,6 +1,7 @@
 from enum import Enum
 import sqlite3
 import queue
+import datetime
 
 
 class alertType(Enum):
@@ -33,7 +34,11 @@ class Generator:
             # Hard-coding locations like this is probably not the best solution
             # Because we're defining the object in main.py so the path is from there
             # So this would completley break if an object is defined anywhere else
-            self.connection = sqlite3.connect(databaseLocation).cursor()
+            self.connection = sqlite3.connect(
+                databaseLocation, check_same_thread=False)
+            self.cursor = self.connection.cursor()
+            self.cursor.execute(
+                "CREATE TABLE IF NOT EXISTS alerts(alertID, alertType, alertTime)")
         except Exception as error:
             print(error)
             raise Exception()
@@ -44,7 +49,9 @@ class Generator:
         """ Function Docstring """
         self.queuedAlerts.put(alertObject)
         alertObjectId = id(alertObject)
-        # self.connection.execute("")
+        self.cursor.execute(
+            "INSERT INTO alerts (alertID, alertType, alertTime) VALUES ('" + str(alertObjectId) + "', '" + str(alertObject) + "','" + str(datetime.datetime.now()) + "')")
+        self.connection.commit()
 
     def processAlert(self):
         """ Function Docstring """

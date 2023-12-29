@@ -8,28 +8,6 @@ import threading
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
 
-stuff = {
-    "changing_lane": False,
-    "indicating": False
-}
-
-# Live vehivce data
-physicalVehicleData = {
-    "speed": 0,
-    "rmp": 0,
-    "indicator": False
-}
-
-telematicVehicleData = {
-    "x-accelaration": 0,
-    "z-accelaration": 0
-}
-
-gpsCoordinates = {
-    "lattitude": "xyz",
-    "longditude": "zyx"
-}
-
 
 def runGenerator():
     """ Docstring """

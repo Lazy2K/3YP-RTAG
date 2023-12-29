@@ -1,6 +1,7 @@
 # Local modules -- Need to be careful of name space using import *
 from modules.generator.generator import *
 from modules.lanevision.lanevision import *
+from modules.vehicle.vehicle import *
 
 # Remote and standard modules
 import threading

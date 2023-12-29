@@ -4,22 +4,9 @@ from modules.lanevision.lanevision import *
 
 # Remote and standard modules
 import threading
-from dataclasses import dataclass
 
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
-
-@dataclass
-class Vehicle:
-    indicating: bool
-    changeingLane: bool
-    speed: float
-    rpm: int
-    x-acceleration: float
-    z-acceleration: float
-    lattitude: str
-    longditude: str
-
 
 stuff = {
     "changing_lane": False,

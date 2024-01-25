@@ -9,6 +9,6 @@ while True:
     rc = ser.readline()
     da = rc.find("$GPGGA,".encode())
     if da:
-        GPGGA = rc.split("$GPGGA,".encode(), 1)[0]
+        GPGGA = da.split("$GPGGA,".encode(), 1)[0]
         NMEA = GPGGA.split(",".encode())
         print(NMEA)

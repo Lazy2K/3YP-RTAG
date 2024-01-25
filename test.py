@@ -8,5 +8,5 @@ ser = serial.Serial("/dev/ttyS0")
 while True:
     rc = ser.readline()
     if rc.find("$GPGGA,".encode()):
-        GPGGA = rc.split("$GPGGA,".encode(), 0)[0]
+        GPGGA = rc.split("$GPGGA,", 0)[0]
         print(GPGGA)

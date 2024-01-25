@@ -10,4 +10,5 @@ while True:
     if rc.find("$GPGGA,".encode()):
         GPGGA = rc.split("$GPGGA,".encode(), 1)[0]
         NMEA = GPGGA.split(",".encode())
-        print(GPGGA)
+        print("GPGGA: " + GPGGA)
+        print("NMEA: " + NMEA)

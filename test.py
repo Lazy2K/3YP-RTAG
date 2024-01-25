@@ -1,8 +1,8 @@
 import serial
 import sys
 
-GPGGA = ""
-NMEA = ""
+GPGGA = 0
+NMEA = 0
 
 ser = serial.Serial("/dev/ttyS0")
 while True:

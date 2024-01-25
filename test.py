@@ -9,4 +9,4 @@ while True:
     rc = ser.readline()
     if rc.find("$GPGGA,".encode()):
         GPGGA = rc.split("$GPGGA,".encode(), 0)[0]
-    print(GPGGA)
+        print(GPGGA)

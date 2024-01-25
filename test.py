@@ -4,6 +4,6 @@ import sys
 ser = serial.Serial("/dev/ttyS0", 9600)
 while True:
     rc = ser.read()
-    dl = ser.in_waiting()
+    dl = ser.inWaiting()
     rc += ser.read(dl)
     print(rc)

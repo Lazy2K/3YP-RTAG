@@ -1,7 +1,7 @@
 import serial
 import sys
 
-ser = serial.Serial("/dev/ttyS0", 9600)
+ser = serial.Serial("/dev/ttyS0")
 while True:
     rc = ser.read()
     dl = ser.inWaiting()

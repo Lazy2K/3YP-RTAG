@@ -9,10 +9,9 @@ NMEA = []
 GPGGA_look = "$GPGGA,"
 
 ser = serial.Serial("/dev/ttyS0")
-dat = pynmea2.NMEAStreamReader()
 while True:
     rc = ser.readline()
     print(rc)
     if rc[0:6] == "$GPGGA".encode():
         print("Triggered")
-        msg = pynmea2.parse(rc)
+        print(pynmea2.parse(rc))

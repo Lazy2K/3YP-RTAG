@@ -13,5 +13,6 @@ while True:
     rc = ser.readline()
     print(rc)
     if rc[0:5] == "$GPGGA":
+        print("Triggered")
         msg = pynmea2.parse(rc)
         print(msg)

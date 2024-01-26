@@ -9,6 +9,7 @@ NMEA = []
 GPGGA_look = "$GPGGA,"
 
 ser = serial.Serial("/dev/ttyS0")
+dat = pynmea2.NMEAStreamReader()
 while True:
     rc = ser.readline()
     print(rc)

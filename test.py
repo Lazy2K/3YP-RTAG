@@ -16,3 +16,4 @@ while True:
         print(rc.decode())
         msg = pynmea2.parse(rc.decode())
         print(msg.fields)
+        print(msg.gps_qual)

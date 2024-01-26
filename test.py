@@ -12,7 +12,7 @@ ser = serial.Serial("/dev/ttyS0")
 while True:
     rc = ser.readline()
     print(rc)
-    if rc[0:6] == "$GPGGA".econde():
+    if rc[0:6] == "$GPGGA".encode():
         print("Triggered")
         msg = pynmea2.parse(rc)
         print(msg)

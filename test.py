@@ -15,4 +15,3 @@ while True:
     if rc[0:6] == "$GPGGA".encode():
         print("Triggered")
         msg = pynmea2.parse(rc)
-        print(msg)

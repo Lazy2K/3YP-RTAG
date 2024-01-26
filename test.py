@@ -9,6 +9,7 @@ GPGGA_look = "$GPGGA,"
 ser = serial.Serial("/dev/ttyAMA0")
 while True:
     rc = ser.readline()
+    print(rc)
     da = rc.find(GPGGA_look)
     print(rc)
     if da > 0:

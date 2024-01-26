@@ -6,7 +6,7 @@ NMEA = []
 
 GPGGA_look = "$GPGGA,"
 
-ser = serial.Serial("/dev/ttyS0")
+ser = serial.Serial("/dev/ttyAMA0")
 while True:
     rc = ser.readline()
     da = rc.find(GPGGA_look)

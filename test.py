@@ -14,7 +14,3 @@ while True:
     if rc[0:6] == "$GPRMC":
         msg = pynmea2.parse(rc)
         print(msg)
-    if da > 0:
-        GPGGA = rc.split("$GPGGA,".encode(), 1)[0]
-        NMEA = GPGGA.split(",".encode())
-        print(NMEA)

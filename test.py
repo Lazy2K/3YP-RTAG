@@ -11,6 +11,7 @@ GPGGA_look = "$GPGGA,"
 ser = serial.Serial("/dev/ttyS0")
 while True:
     rc = ser.readline()
-    if rc[0:6] == "$GPRMC":
+    print(rc)
+    if rc[0:6] == "$GPGGA":
         msg = pynmea2.parse(rc)
         print(msg)

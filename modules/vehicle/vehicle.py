@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import pynmea2
 import serial
 
 
@@ -15,7 +16,13 @@ class HardwareInterface:
             self.serial = serial    # UART serial port
             self.serialConnection = serial.Serial(self.serial)
 
-        def collectGpsData():
+        def collectGpsData(self):
+            serialLine = b''  # Empty bype array
+            while serialLine[0:6] != self.GPGGA.encode():
+                serialLine = self.serialConnection.readline()
+                if serialLine[0:6] == self.GPGGA.encode():
+                    gpsData = pynmea2.parse(serialLine.decode())
+
             return gpsData
 
     class Accelerometer:

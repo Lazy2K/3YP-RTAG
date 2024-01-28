@@ -15,6 +15,7 @@ class alertType(Enum):
     CORNER_TOO_HARD = 5
     # Cockpit based alerts
     SEATBELT_DISCONNECTED = 6
+    LOSS_OF_TRACTION = 7
 
 
 class Alert():

@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import serial
 
 
 class HardwareInterface:
@@ -11,6 +12,11 @@ class HardwareInterface:
     class GPS:
         def __init__(self, serial):
             self.GPGGA = "$GPGGA,"  # Global Positioning System Fix Data
+            self.serial = serial    # UART serial port
+            self.serialConnection = serial.Serial(self.serial)
+
+        def collectGpsData():
+            return gpsData
 
     class Accelerometer:
         def __init__(self):

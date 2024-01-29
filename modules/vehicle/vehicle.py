@@ -13,7 +13,7 @@ class HardwareInterface:
 
     class GPS:
         def __init__(self, serialPort):
-            self.GPGGA = "$GPGGA,"  # Global Positioning System Fix Data
+            self.GPGGA = "$GPGGA"  # Global Positioning System Fix Data
             self.serialPort = serialPort    # UART serial port
             self.serialConnection = serial.Serial(serialPort)
 

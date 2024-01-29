@@ -15,7 +15,7 @@ class HardwareInterface:
         def __init__(self, serialPort):
             self.GPGGA = "$GPGGA,"  # Global Positioning System Fix Data
             self.serialPort = serialPort    # UART serial port
-            self.serialConnection = serial.Serial(self.serialPort)
+            self.serialConnection = serial.Serial(serialPort)
 
         def collectGpsData(self, timeoutSeconds):
             serialLine = b''  # Empty bype array

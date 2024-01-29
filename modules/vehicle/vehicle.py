@@ -30,7 +30,7 @@ class HardwareInterface:
                 print(serialLine[0:6])
                 if serialLine[0:6] == self.GPGGA.encode():
                     gpsData = pynmea2.parse(serialLine.decode())
-                    return gpsData.gps_qual
+                    return gpsData
 
     class Accelerometer:
         def __init__(self):
@@ -63,4 +63,7 @@ class Vehicle:
         # Collect 1 vehivle data... somehow
         print("Collecting 1 vehicle data")
         hi = HardwareInterface("/dev/ttyS0")
-        print(hi.GPS.collectGpsData(60))
+        gpdata = hi.GPS.collectGpsData(60)
+
+        for item in gpdata:
+            print(item)

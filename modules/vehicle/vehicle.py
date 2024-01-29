@@ -83,6 +83,3 @@ class Vehicle:
 
         if (accData):
             print("Acc data goes here")
-
-        for i in range(len(gpdata.fields)):
-            print(gpdata.fields[i][0])

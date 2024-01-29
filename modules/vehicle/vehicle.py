@@ -75,12 +75,12 @@ class Vehicle:
     def collectVehicleData(self):
         """ Docstring """
         gpsData = self.hardwareInterface.GPS.collectGpsData(60)
-        accData = self.hardwareInterface.Accelerometer.collectAccData(60)
+        # accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
         if (gpsData):
             self.gpsLatitude = gpsData.latitude
             self.gpsLongitude = gpsData.longitude
             self.gpsQuality = gpsData.gps_qual
 
-        if (accData):
-            print("Acc data goes here")
+        # if (accData):
+            # print("Acc data goes here")

@@ -59,5 +59,5 @@ class Vehicle:
     def collectVehicleData(self):
         # Collect 1 vehivle data... somehow
         print("Collecting 1 vehicle data")
-        hi = HardwareInterface()
+        hi = HardwareInterface("/dev/ttyS0")
         print(hi.GPS.collectGpsData(60))

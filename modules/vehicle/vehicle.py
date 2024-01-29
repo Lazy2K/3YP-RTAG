@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 import pynmea2
 import serial
+import time
 
 
 class HardwareInterface:
@@ -16,14 +17,17 @@ class HardwareInterface:
             self.serial = serial    # UART serial port
             self.serialConnection = serial.Serial(self.serial)
 
-        def collectGpsData(self):
+        def collectGpsData(self, timeoutSeconds):
             serialLine = b''  # Empty bype array
+            timeout = time.time() + timeoutSeconds
             while serialLine[0:6] != self.GPGGA.encode():
+                if time.time() > timeout:
+                    print("GPS timeout limit reached")
+                    return None
                 serialLine = self.serialConnection.readline()
                 if serialLine[0:6] == self.GPGGA.encode():
                     gpsData = pynmea2.parse(serialLine.decode())
-
-            return gpsData
+                    return gpsData
 
     class Accelerometer:
         def __init__(self):
@@ -55,3 +59,5 @@ class Vehicle:
     def collectVehicleData(self):
         # Collect 1 vehivle data... somehow
         print("Collecting 1 vehicle data")
+        hi = HardwareInterface()
+        print(hi.GPS.collectGpsData())

@@ -30,8 +30,6 @@ def collectVehicleData():
         print("Vehicle data collected")
         print(vehicle)
         print("Vehicle printed")
-        if event.is_set:
-            break
 
         print("Passed the break")
 

@@ -70,6 +70,11 @@ class Vehicle:
     gpsLongitude: str = ""
     gpsQuality: float = 0.0
 
+    def setLaneAttributes(self, inLane: bool, isChanging: bool):
+        """ Docstring """
+        self.isInLane = inLane
+        self.isChangingLane = isChanging
+
     hardwareInterface = HardwareInterface("/dev/ttyS0")
 
     def collectVehicleData(self):

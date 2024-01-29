@@ -62,5 +62,5 @@ class Vehicle:
         hi = HardwareInterface("/dev/ttyS0")
         gpdata = hi.GPS.collectGpsData(60)
 
-        ['%s: %s' % (gpdata.fields[i][0], gpdata.data[i])
-         for i in range(len(gpdata.fields))]
+        for i in range(len(gpdata.fields)):
+            print(gpdata.fields[i][0])

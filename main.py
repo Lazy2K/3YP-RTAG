@@ -18,20 +18,14 @@ def processGeneratedAlerts():
     """ Docstring """
     while True:
         alertGenerator.processAlert()
-        if event.is_set:
-            break
 
 
 def collectVehicleData():
     """ Docstring """
     while True:
-        print("Getting vehicle data")
-        vehicle.collectVehicleData()
-        print("Vehicle data collected")
-        print(vehicle)
-        print("Vehicle printed")
 
-        print("Passed the break")
+        vehicle.collectVehicleData()
+
 
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 
@@ -54,13 +48,6 @@ if __name__ == "__main__":
     for thread in threads:
         print("Starting: " + thread.name)
         thread.start()
-
-    while True:
-        try:
-            time.sleep(0.1)
-        except KeyboardInterrupt:
-            event.set()
-            break
 
     # Wait for all threads to finish
     for thread in threads:

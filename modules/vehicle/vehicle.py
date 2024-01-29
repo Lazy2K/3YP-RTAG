@@ -13,7 +13,7 @@ class HardwareInterface:
         else:
             self.GPS = self.GPS(serialPort)  # User defined serial port
 
-        self.Accelerometer = self.Accelerometer()
+        # self.Accelerometer = self.Accelerometer()
 
     class GPS:
         """ Docstring """
@@ -77,7 +77,7 @@ class Vehicle:
         gpsData = self.hardwareInterface.GPS.collectGpsData(60)
         # accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
-        if (gpsData):
+        if (gpsData != None):
             self.gpsLatitude = gpsData.latitude
             self.gpsLongitude = gpsData.longitude
             self.gpsQuality = gpsData.gps_qual

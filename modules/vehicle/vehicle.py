@@ -5,17 +5,17 @@ import time
 
 
 class HardwareInterface:
-    def __init__(self, serial: str = None):
+    def __init__(self, serialPort: str = None):
         if serial == None:
             self.GPS = self.GPS("/dev/ttyS0")  # Default serial port
         else:
-            self.GPS = self.GPS(serial)  # User defined serial port
+            self.GPS = self.GPS(serialPort)  # User defined serial port
 
     class GPS:
-        def __init__(self, serial):
+        def __init__(self, serialPort):
             self.GPGGA = "$GPGGA,"  # Global Positioning System Fix Data
-            self.serial = serial    # UART serial port
-            self.serialConnection = serial.Serial(self.serial)
+            self.serialPort = serialPort    # UART serial port
+            self.serialConnection = serial.Serial(self.serialPort)
 
         def collectGpsData(self, timeoutSeconds):
             serialLine = b''  # Empty bype array

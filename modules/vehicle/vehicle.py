@@ -70,11 +70,12 @@ class Vehicle:
     gpsLongitude: str = ""
     gpsQuality: float = 0.0
 
+    hardwareInterface = HardwareInterface("/dev/ttyS0")
+
     def collectVehicleData(self):
         """ Docstring """
-        hardwareInterface = HardwareInterface("/dev/ttyS0")
-        gpsData = hardwareInterface.GPS.collectGpsData(60)
-        accData = hardwareInterface.Accelerometer.collectAccData(60)
+        gpsData = self.hardwareInterface.GPS.collectGpsData(60)
+        accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
         if (gpsData):
             self.gpsLatitude = gpsData.latitude

@@ -23,9 +23,8 @@ def processGeneratedAlerts():
 def collectVehicleData():
     """ Docstring """
     while True:
-
         vehicle.collectVehicleData()
-
+        print(Vehicle)
 
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 

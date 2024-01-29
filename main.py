@@ -45,6 +45,7 @@ def other(generator):
 if __name__ == "__main__":
 
     event = threading.Event()
+    event.clear()
 
     threads = []
     threads.append(threading.Thread(target=processGeneratedAlerts))

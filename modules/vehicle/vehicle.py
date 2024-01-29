@@ -25,6 +25,7 @@ class HardwareInterface:
                     print("GPS timeout limit reached")
                     return None
                 serialLine = self.serialConnection.readline()
+                print(serialLine)
                 if serialLine[0:6] == self.GPGGA.encode():
                     gpsData = pynmea2.parse(serialLine.decode())
                     return gpsData

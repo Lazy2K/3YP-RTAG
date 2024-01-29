@@ -25,6 +25,7 @@ def processGeneratedAlerts():
 def collectVehicleData():
     """ Docstring """
     while True:
+        print("Getting vehicle data")
         vehicle.collectVehicleData()
         print(vehicle)
         if event.is_set:

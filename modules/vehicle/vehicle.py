@@ -60,4 +60,4 @@ class Vehicle:
         # Collect 1 vehivle data... somehow
         print("Collecting 1 vehicle data")
         hi = HardwareInterface()
-        print(hi.GPS.collectGpsData())
+        print(hi.GPS.collectGpsData(60))

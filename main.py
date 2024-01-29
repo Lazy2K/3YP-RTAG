@@ -33,6 +33,8 @@ def collectVehicleData():
         if event.is_set:
             break
 
+        print("Passed the break")
+
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 
 

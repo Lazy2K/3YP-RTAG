@@ -11,7 +11,7 @@ import sys
 
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
-userVehicle = Vehicle()
+vehicle = Vehicle()
 
 
 def processGeneratedAlerts():
@@ -25,7 +25,8 @@ def processGeneratedAlerts():
 def collectVehicleData():
     """ Docstring """
     while True:
-        time.sleep(0.1)
+        vehicle.collectVehicleData()
+        print(vehicle)
         if event.is_set:
             break
 

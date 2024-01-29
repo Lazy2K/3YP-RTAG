@@ -5,6 +5,8 @@ import time
 
 
 class HardwareInterface:
+    """ Docstring """
+
     def __init__(self, serialPort: str = None):
         if serial == None:
             self.GPS = self.GPS("/dev/ttyS0")  # Default serial port
@@ -12,12 +14,15 @@ class HardwareInterface:
             self.GPS = self.GPS(serialPort)  # User defined serial port
 
     class GPS:
+        """ Docstring """
+
         def __init__(self, serialPort):
             self.GPGGA = "$GPGGA"  # Global Positioning System Fix Data
             self.serialPort = serialPort    # UART serial port
             self.serialConnection = serial.Serial(serialPort)
 
         def collectGpsData(self, timeoutSeconds):
+            """ Docstring """
             serialLine = b''  # Empty bype array
             timeout = time.time() + timeoutSeconds
             while serialLine[0:6] != self.GPGGA.encode():
@@ -30,12 +35,19 @@ class HardwareInterface:
                     return gpsData
 
     class Accelerometer:
+        """ Docstring """
+
         def __init__(self):
+            pass
+
+        def collectAccData(self, timeoutSeconds):
+            """ Docstring """
             pass
 
 
 @dataclass
 class Vehicle:
+    """ Docstring """
 
     # Vehicle Interface Data
     speed: int = 0
@@ -57,10 +69,18 @@ class Vehicle:
     gpsQuality: float = 0.0
 
     def collectVehicleData(self):
-        # Collect 1 vehivle data... somehow
-        print("Collecting 1 vehicle data")
-        hi = HardwareInterface("/dev/ttyS0")
-        gpdata = hi.GPS.collectGpsData(60)
+        """ Docstring """
+        hardwareInterface = HardwareInterface("/dev/ttyS0")
+        gpsData = hardwareInterface.GPS.collectGpsData(60)
+        accData = hardwareInterface.Accelerometer.collectAccData(60)
+
+        if (gpsData):
+            self.gpsLatitude = gpsData.latitude
+            self.gpsLongitude = gpsData.longitude
+            self.gpsQuality = gpsData.gps_qual
+
+        if (accData):
+            print("Acc data goes here")
 
         for i in range(len(gpdata.fields)):
             print(gpdata.fields[i][0])

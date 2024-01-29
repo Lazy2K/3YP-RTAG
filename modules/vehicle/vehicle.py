@@ -45,6 +45,7 @@ class HardwareInterface:
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
             pass
+            print("I'm caught here")
 
 
 @dataclass

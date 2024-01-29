@@ -27,7 +27,9 @@ def collectVehicleData():
     while True:
         print("Getting vehicle data")
         vehicle.collectVehicleData()
+        print("Vehicle data collected")
         print(vehicle)
+        print("Vehicle printed")
         if event.is_set:
             break
 

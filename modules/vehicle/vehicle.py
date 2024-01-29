@@ -40,12 +40,11 @@ class HardwareInterface:
         """ Docstring """
 
         def __init__(self):
-            pass
+            print("b")
 
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
-            pass
-            print("I'm caught here")
+            print("A")
 
 
 @dataclass

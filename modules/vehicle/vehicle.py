@@ -1,7 +1,11 @@
 from dataclasses import dataclass
-import pynmea2
-import serial
-import time
+import pynmea2  # GPS decoder library
+import serial  # UART (Rx/Tx) library
+import time  # Timing library
+import board  # GPIO pin auto detection library
+import digitalio  # Digital GPIO library
+import busio  # I2C library
+import adafruit_lis3dh  # Hardware specific acceleromiter library
 
 
 class HardwareInterface:
@@ -40,11 +44,14 @@ class HardwareInterface:
         """ Docstring """
 
         def __init__(self):
-            print("b")
+            self.I2C = busio.I2C
+            self.int1 = digitalio.DigitalInOut(board.D24)
+            self.acceleromiter = adafruit_lis3dh.LIS3DH_I2C(
+                self.I2C, int1=self.int1)
 
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
-            print("A")
+            return self.acceleromiter.acceleration
 
 
 @dataclass
@@ -62,13 +69,14 @@ class Vehicle:
     isChangingLane: bool = 0
 
     # Acceleration Data
-    xAcceleration: float = 0.0
-    zAcceleration: float = 0.0
+    xAcceleration: float = 0.0  # Lateral acceleration
+    zAcceleration: float = 0.0  # Forwards / backwards acceleration
 
     # GPS Data
     gpsLatitude: str = ""
     gpsLongitude: str = ""
     gpsQuality: float = 0.0
+    satsConnected: int = 0
 
     def setLaneAttributes(self, inLane: bool, isChanging: bool):
         """ Docstring """
@@ -80,12 +88,16 @@ class Vehicle:
     def collectVehicleData(self):
         """ Docstring """
         gpsData = self.hardwareInterface.GPS.collectGpsData(60)
-        # accData = self.hardwareInterface.Accelerometer.collectAccData(60)
+        accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
         if (gpsData != None):
             self.gpsLatitude = gpsData.latitude
             self.gpsLongitude = gpsData.longitude
             self.gpsQuality = gpsData.gps_qual
+
+        if (accData != None):
+            # Figure out the correct indexes then remove this comment
+            self.zAcceleration = accData[0]
 
         # if (accData):
         # print("Acc data goes here")

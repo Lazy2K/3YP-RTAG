@@ -51,7 +51,10 @@ class HardwareInterface:
 
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
-            print(timeoutSeconds)
+            timeout = time.time() + timeoutSeconds
+            if time.time() > timeout:
+                print("GPS timeout limit reached")
+                return None
             return self.acceleromiter.acceleration
 
 

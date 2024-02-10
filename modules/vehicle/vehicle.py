@@ -51,6 +51,7 @@ class HardwareInterface:
 
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
+            print(timeoutSeconds)
             return self.acceleromiter.acceleration
 
 

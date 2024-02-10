@@ -99,5 +99,8 @@ class Vehicle:
             # Figure out the correct indexes then remove this comment
             self.zAcceleration = accData[0]
 
+        print(gpsData)
+        print(accData)
+
         # if (accData):
         # print("Acc data goes here")

@@ -17,7 +17,7 @@ class HardwareInterface:
         else:
             self.GPS = self.GPS(serialPort)  # User defined serial port
 
-        # self.Accelerometer = self.Accelerometer()
+        self.Accelerometer = self.Accelerometer()
 
     class GPS:
         """ Docstring """

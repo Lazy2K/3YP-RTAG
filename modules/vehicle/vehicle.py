@@ -32,7 +32,7 @@ class HardwareInterface:
             serialLine = b''  # Empty bype array
             timeout = time.time() + timeoutSeconds
             while serialLine[0:6] != self.GPGGA.encode():
-                if time.time() > timeout:
+                if time.time() > timeout:  # This is an inafective way of checking (doesnt work because if there is no serial to read this line will never be reached)
                     print("GPS timeout limit reached")
                     return None
                 serialLine = self.serialConnection.readline()
@@ -51,7 +51,7 @@ class HardwareInterface:
 
         def collectAccData(self, timeoutSeconds):
             """ Docstring """
-            timeout = time.time() + timeoutSeconds
+            timeout = time.time() + timeoutSeconds  # This is an inafective way of checking (doesn't work)
             if time.time() > timeout:
                 print("GPS timeout limit reached")
                 return None

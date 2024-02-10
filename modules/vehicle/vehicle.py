@@ -88,7 +88,7 @@ class Vehicle:
     def collectVehicleData(self):
         """ Docstring """
         print("Running")
-        gpsData = self.hardwareInterface.GPS.collectGpsData(60)
+        gpsData = None  # self.hardwareInterface.GPS.collectGpsData(60)
         accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
         if (gpsData != None):

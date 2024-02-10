@@ -92,19 +92,19 @@ class Vehicle:
     def collectVehicleData(self):
         """ Docstring """
         print("Running")
-        gpsData = None  # self.hardwareInterface.GPS.collectGpsData(60)
+        # gpsData = None  # self.hardwareInterface.GPS.collectGpsData(60)
         accData = self.hardwareInterface.Accelerometer.collectAccData(60)
 
-        if (gpsData != None):
-            self.gpsLatitude = gpsData.latitude
-            self.gpsLongitude = gpsData.longitude
-            self.gpsQuality = gpsData.gps_qual
+        # if (gpsData != None):
+        #   self.gpsLatitude = gpsData.latitude
+        #  self.gpsLongitude = gpsData.longitude
+        # self.gpsQuality = gpsData.gps_qual
 
         if (accData != None):
             # Figure out the correct indexes then remove this comment
             self.zAcceleration = accData[0]
 
-        print(gpsData)
+        # print(gpsData)
         print(accData)
 
         # if (accData):

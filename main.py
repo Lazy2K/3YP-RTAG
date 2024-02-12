@@ -5,9 +5,13 @@ from modules.detector.detector import *
 from modules.vehicle.vehicle import *
 
 # Remote and standard modules
+from playsound import playsound
 import threading
 import time
 import sys
+
+# Import voice files
+imkatara = '/assets/audio/voices/katara/imkatara.mp3'
 
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
@@ -33,6 +37,8 @@ def other(generator):
 
 
 if __name__ == "__main__":
+
+    playsound(imkatara)
 
     event = threading.Event()
     event.clear()

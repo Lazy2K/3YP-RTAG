@@ -67,6 +67,7 @@ class Vehicle:
     rpm: int = 0
     isSeatbelt: bool = 0
     isIndicating: bool = 0
+    indicatingDirection: bool = 0  # 0 = Left, 1 = Right
 
     # Lane Vision Data
     isInLane: bool = 0
@@ -87,6 +88,13 @@ class Vehicle:
         self.isInLane = inLane
         self.isChangingLane = isChanging
 
+    def setVehicleSpeed(self, newSpeed: int):
+        self.speed = newSpeed
+
+    def setVehicleIndication(self, indication: bool, indicationDirection: bool):
+        self.isIndicating = indication  # This can be false to cancel the indication
+        self.indicatingDirection = indicationDirection
+
     hardwareInterface = HardwareInterface("/dev/ttyS0")
 
     def collectVehicleData(self):
@@ -106,6 +114,8 @@ class Vehicle:
 
         print(gpsData)
         print(accData)
+
+        # The data should probably be offloaded to a csv or text file or db for future reference
 
         # if (accData):
         # print("Acc data goes here")

@@ -11,7 +11,7 @@ import time
 import sys
 
 # Import voice files
-imkatara = '/assets/audio/voices/katara/imkatara.mp3'
+imkatara = 'assets/audio/voices/katara/imkatara.mp3'
 
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")

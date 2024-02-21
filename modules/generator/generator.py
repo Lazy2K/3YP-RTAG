@@ -19,7 +19,7 @@ class alertType(Enum):
     LOSS_OF_TRACTION = 7
 
 
-class alertSounds(Enum):
+class alertSound(Enum):
     SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
         'assets/audio/voices/katara/imkatara.mp3')
 

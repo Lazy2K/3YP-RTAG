@@ -21,9 +21,9 @@ class alertType(Enum):
 
 class alertSound():
     LANE_CHANGE = pygame.mixer.Sound(
-        'assets/audio/voices/otis/gpssync.mp3')
+        'assets/audio/voices/maxwell/maxwell_lanes.mp3')
     SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
-        'assets/audio/voices/otis/gpssync.mp3')
+        'assets/audio/voices/maxwell/maxwell_speed.mp3')
 
 
 class Alert():

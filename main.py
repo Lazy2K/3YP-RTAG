@@ -39,7 +39,7 @@ def other(generator):
     generator.registerAlert(
         Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
     generator.registerAlert(
-        Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
+        Alert(alertType.LANE_CHANGE, alertSound.LANE_CHANGE))
     generator.registerAlert(
         Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
 

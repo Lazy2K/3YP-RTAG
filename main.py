@@ -38,6 +38,10 @@ def collectVehicleData():
 def other(generator):
     generator.registerAlert(
         Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
+    generator.registerAlert(
+        Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
+    generator.registerAlert(
+        Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
 
 
 if __name__ == "__main__":

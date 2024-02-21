@@ -50,7 +50,7 @@ class Generator:
 
     def registerAlert(self, alertObject):
         """ Function Docstring """
-        print("Registering alert: " + str(alertObject.name))
+        print("Registering alert: " + str(alertObject.alertType))
         self.queuedAlerts.put(alertObject)
         alertObjectId = id(alertObject)
         # self.connection.execute("")

@@ -1,4 +1,5 @@
 from enum import Enum
+import pygame
 import sqlite3
 import queue
 
@@ -18,11 +19,17 @@ class alertType(Enum):
     LOSS_OF_TRACTION = 7
 
 
+class alertSounds(Enum):
+    SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
+        'assets/audio/voices/katara/imkatara.mp3')
+
+
 class Alert():
     """ Class Docstring """
 
-    def __init__(self, alertType):
+    def __init__(self, alertType, alertSound):
         self.alertType = alertType
+        self.alertSound = alertSound
 
 
 class Generator:
@@ -51,8 +58,9 @@ class Generator:
     def processAlert(self):
         """ Function Docstring """
         alertObject = self.queuedAlerts.get()
-        print(alertObject)
+        print(alertObject.alertType)
         alertObjectId = id(alertObject)
+        alertObject.alertSound.play()
         # self.connection.execute("")
         # Process alert
         # Play sound

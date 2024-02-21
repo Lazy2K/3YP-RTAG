@@ -63,9 +63,9 @@ class Generator:
         alertObject = self.queuedAlerts.get()
         print(alertObject.alertType)
         alertObjectId = id(alertObject)
-        alertObject.alertSound.play()
+        soundChannel = alertObject.alertSound.play()
         # This should wait for the sound to finish playing before processing the next alert
-        while alertObject.alertSound.get_busy():
+        while soundChannel.get_busy():
             pygame.time.wait(100)
 
         # self.connection.execute("")

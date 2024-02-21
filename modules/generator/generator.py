@@ -42,7 +42,6 @@ class Generator:
             # Because we're defining the object in main.py so the path is from there
             # So this would completley break if an object is defined anywhere else
             self.connection = sqlite3.connect(databaseLocation).cursor()
-            pygame.init()  # Initialise pygame sound mixer
         except Exception as error:
             print(error)
             raise Exception()

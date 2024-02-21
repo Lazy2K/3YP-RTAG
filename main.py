@@ -41,7 +41,13 @@ def other(generator):
     generator.registerAlert(
         Alert(alertType.LANE_CHANGE, alertSound.LANE_CHANGE))
     generator.registerAlert(
-        Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
+        Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))
+    generator.registerAlert(
+        Alert(alertType.DECELERATION_TOO_FAST, alertSound.DECELERATION_TOO_FAST))
+    generator.registerAlert(
+        Alert(alertType.CORNER_TOO_HARD, alertSound.CORNER_TOO_HARD))
+    generator.registerAlert(
+        Alert(alertType.SEATBELT_DISCONNECTED, alertSound.SEATBELT_DISCONNECTED))
 
 
 if __name__ == "__main__":

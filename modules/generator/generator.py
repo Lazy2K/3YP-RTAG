@@ -16,7 +16,6 @@ class alertType(Enum):
     CORNER_TOO_HARD = 5
     # Cockpit based alerts
     SEATBELT_DISCONNECTED = 6
-    LOSS_OF_TRACTION = 7
 
 
 class alertSound():
@@ -24,6 +23,14 @@ class alertSound():
         'assets/audio/voices/maxwell/maxwell_lanes.mp3')
     SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
         'assets/audio/voices/maxwell/maxwell_speed.mp3')
+    ACCELERATION_TOO_FAST = pygame.mixer.Sound(
+        'assets/audio/voices/maxwell/maxwell_acceleration.mp3')
+    DECELERATION_TOO_FAST = pygame.mixer.Sound(
+        'assets/audio/voices/maxwell/maxwell_braking.mp3')
+    CORNER_TOO_HARD = pygame.mixer.Sound(
+        'assets/audio/voices/maxwell/maxwell_corner.mp3')
+    SEATBELT_DISCONNECTED = pygame.mixer.Sound(
+        'assets/audio/voices/maxwell/maxwell_seatbelt.mp3')
 
 
 class Alert():

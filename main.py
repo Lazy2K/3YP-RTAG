@@ -46,7 +46,7 @@ def other(generator):
 
 if __name__ == "__main__":
 
-    imkatara.play()
+    # imkatara.play()
 
     event = threading.Event()
     event.clear()

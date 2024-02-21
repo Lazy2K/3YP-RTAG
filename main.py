@@ -14,6 +14,8 @@ import sys
 pygame.init()
 imkatara = pygame.mixer.Sound('assets/audio/voices/katara/imkatara.mp3')
 
+# assets\audio\voices\katara\imkatara.mp3
+
 # Setup alert-generator object
 alertGenerator = Generator("database/alerts/alerts.db")
 vehicle = Vehicle()

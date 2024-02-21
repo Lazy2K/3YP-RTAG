@@ -64,6 +64,7 @@ class Generator:
         print(alertObject.alertType)
         alertObjectId = id(alertObject)
         alertObject.alertSound.play()
+        # This should wait for the sound to finish playing before processing the next alert
         while alertObject.alertSound.get_busy():
             pygame.time.wait(100)
 

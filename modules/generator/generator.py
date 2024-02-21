@@ -21,7 +21,7 @@ class alertType(Enum):
 
 class alertSound():
     SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
-        'assets/audio/voices/katara/imkatara.mp3')
+        'assets/audio/voices/otis/gpssync.mp3')
 
 
 class Alert():

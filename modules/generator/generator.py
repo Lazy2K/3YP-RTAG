@@ -20,6 +20,8 @@ class alertType(Enum):
 
 
 class alertSound():
+    LANE_CHANGE = pygame.mixer.Sound(
+        'assets/audio/voices/otis/gpssync.mp3')
     SPEED_LIMIT_EXCEEDED = pygame.mixer.Sound(
         'assets/audio/voices/otis/gpssync.mp3')
 
@@ -55,12 +57,16 @@ class Generator:
         alertObjectId = id(alertObject)
         # self.connection.execute("")
 
+    # This doesn't need to be realtime so maybe should move to different thread idk man
     def processAlert(self):
         """ Function Docstring """
         alertObject = self.queuedAlerts.get()
         print(alertObject.alertType)
         alertObjectId = id(alertObject)
         alertObject.alertSound.play()
+        while alertObject.alertSound.get_busy():
+            pygame.time.wait(100)
+
         # self.connection.execute("")
         # Process alert
         # Play sound

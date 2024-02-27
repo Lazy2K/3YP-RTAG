@@ -21,14 +21,9 @@ class Detector:
         }
 
     def run(self):
-
-        print(self.vehicle.zAcceleration)
         if self.vehicle.zAcceleration > 0.5 and self.timeTillNext["ACCELERATION_TOO_FAST"] < time.time():
             # Set cooldown timer
             self.timeTillNext["ACCELERATION_TOO_FAST"] = time.time(
             ) + self.timeOutSeconds
-            print("TIMETILL: " +
-                  str(self.timeTillNext["ACCELERATION_TOO_FAST"]))
-            print("TIMENOW: " + str(time.time()))
             self.generator.registerAlert(
                 Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))

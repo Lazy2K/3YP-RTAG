@@ -99,7 +99,6 @@ class Vehicle:
 
     def collectVehicleData(self):
         """ Docstring """
-        print("Running")
         gpsData = self.hardwareInterface.GPS.collectGpsData(5)
         accData = self.hardwareInterface.Accelerometer.collectAccData(5)
 

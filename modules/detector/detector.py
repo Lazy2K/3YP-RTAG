@@ -27,5 +27,7 @@ class Detector:
             # Set cooldown timer
             self.timeTillNext["ACCELERATION_TOO_FAST"] = time.time(
             ) + self.timeOutSeconds
+            print("TIMETILL: " + self.timeTillNext["ACCELERATION_TOO_FAST"])
+            print("TIMENOW: " + time.time())
             self.generator.registerAlert(
                 Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))

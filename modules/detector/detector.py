@@ -10,7 +10,7 @@ class Detector:
         self.vehicle = vehicle
         self.generator = generator
 
-        self.timeOutSeconds = 5
+        self.timeOutSeconds = 5000
         self.timeTillNext = {  # This seems like a bad solution and inefficient
             "LANE_CHANGE": time.time(),
             "SPEED_LIMIT_EXCEEDED": time.time(),

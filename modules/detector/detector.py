@@ -10,8 +10,8 @@ class Detector:
         self.vehicle = vehicle
         self.generator = generator
 
-        self.xAccelerationThreashold = 0.5
-        self.zAccelerationThreashold = 0.6
+        self.xAccelerationThreashold = 1.0
+        self.zAccelerationThreashold = 1.0
 
         self.timeOutSeconds = 10.0
         self.timeTillNext = {  # This seems like a bad solution and inefficient
@@ -24,10 +24,9 @@ class Detector:
         }
 
     def run(self):
-        if self.vehicle.xAcceleration > 0.5 and self.timeTillNext["ACCELERATION_TOO_FAST"] < time.time():
+        if self.vehicle.xAcceleration > self.xAccelerationThreashold and self.timeTillNext["ACCELERATION_TOO_FAST"] < time.time():
             # Set cooldown timer
             self.timeTillNext["ACCELERATION_TOO_FAST"] = time.time(
             ) + self.timeOutSeconds
-            print(self.vehicle.xAcceleration)
             self.generator.registerAlert(
                 Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))

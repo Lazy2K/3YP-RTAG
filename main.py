@@ -71,6 +71,7 @@ if __name__ == "__main__":
     threads = []
     threads.append(threading.Thread(target=processGeneratedAlerts))
     threads.append(threading.Thread(target=collectVehicleData))
+    threads.append(threading.Thread(target=runAlertDetector))
     threads.append(threading.Thread(target=other, args=(alertGenerator,)))
 
     # Begin all threads

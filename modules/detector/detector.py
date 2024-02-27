@@ -1,7 +1,11 @@
+from ..vehicle import Vehicle
+
+
 class Detector:
-    def __init__(self, vehicle, generator):
+    def __init__(self, vehicle: Vehicle, generator):
         self.vehicle = vehicle
         self.generator = generator
 
     def run(self):
-        print(self.vehicle)
+        if self.vehicle.zAcceleration > 0:
+            print(self.vehicle.zAcceleration)

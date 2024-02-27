@@ -21,6 +21,10 @@ alertGenerator = Generator("database/alerts/alerts.db")
 vehicle = Vehicle()
 
 
+alertDetector = Detector(vehicle, alertGenerator)
+
+
+# THREADS
 def processGeneratedAlerts():
     """ Docstring """
     while True:
@@ -31,7 +35,13 @@ def collectVehicleData():
     """ Docstring """
     while True:
         vehicle.collectVehicleData()
-        print(vehicle.xAcceleration)
+        # print(vehicle.xAcceleration)
+
+
+def runAlertDetector():
+    while True:
+        alertDetector.run()
+
 
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 

@@ -9,6 +9,7 @@ class Detector:
         self.generator = generator
 
     def run(self):
-        if self.vehicle.zAcceleration > 0.5:
+        print(self.vehicle.xAcceleration)
+        if self.vehicle.xAcceleration > 0.5:
             self.generator.registerAlert(
                 Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))

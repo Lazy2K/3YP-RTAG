@@ -10,7 +10,7 @@ class Detector:
         self.vehicle = vehicle
         self.generator = generator
 
-        self.timeOutSeconds = 5000
+        self.timeOutSeconds = 5.0
         self.timeTillNext = {  # This seems like a bad solution and inefficient
             "LANE_CHANGE": time.time(),
             "SPEED_LIMIT_EXCEEDED": time.time(),
@@ -23,6 +23,8 @@ class Detector:
     def run(self):
 
         print(self.vehicle.zAcceleration)
+        print(time.time())
+        print(self.timeTillNext["ACCELERATION_TOO_FAST"])
         if self.vehicle.zAcceleration > 0.5 and self.timeTillNext["ACCELERATION_TOO_FAST"] < time.time():
             # Set cooldown timer
             self.timeTillNext["ACCELERATION_TOO_FAST"] += self.timeOutSeconds

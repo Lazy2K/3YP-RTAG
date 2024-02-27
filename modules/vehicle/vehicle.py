@@ -110,7 +110,7 @@ class Vehicle:
 
         if (accData != None):
             # Figure out the correct indexes then remove this comment
-            self.zAcceleration = accData[0]
+            self.zAcceleration = accData[2]
             self.xAcceleration = accData[1]
 
         # The data should probably be offloaded to a csv or text file or db for future reference

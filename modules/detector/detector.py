@@ -4,4 +4,4 @@ class Detector:
         self.generator = generator
 
     def run(self):
-        print("Vehicle: " + self.vehicle)
+        print(self.vehicle)

@@ -1,0 +1,22 @@
+config:
+    mask:
+        shape:
+            mask_midpoint: 600
+            mask_base: 200
+        white:
+            range: [100, 200]
+    blur:
+        ksize: [5,5]
+        sigmax: 0
+    edge:
+        threashold1: 100
+        threashold2: 200
+    lines:
+        rho: 1
+        theta: np.pi/180
+        threashold: 10
+        min_line_length: 10
+        max_line_gap: 5
+        line_gradients:
+            left: [-10, -0.5]
+            right: [10, 0.5]

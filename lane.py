@@ -67,6 +67,8 @@ INPUT_VIDEO = cv.VideoCapture("assets/video/dashcam/dc1.mp4")
 while INPUT_VIDEO.isOpened():
     ret, frame = INPUT_VIDEO.read()
 
+    print("Frame")
+
     if not ret:
         print("Error loading frame")
         break

@@ -100,7 +100,7 @@ while INPUT_VIDEO.isOpened():
     white = white_mask(gaus)
     mask = region_mask(edge, 550, 100)
 
-    cv.imshow('frame', frame)
+    # cv.imshow('frame', frame)
     if (cv.waitKey(1) == ord('q')):
         break
 

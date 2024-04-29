@@ -105,4 +105,4 @@ while INPUT_VIDEO.isOpened():
         break
 
 INPUT_VIDEO.release()
-cv.destroyAllWindows()
+# cv.destroyAllWindows()

@@ -64,8 +64,8 @@ class OverpassInterface:
         self.api = overpass.API(timeout=1000)
 
     def GetCurrentMaxSpeed(self, lat, lon):
-        print("Lat: " + lat)
-        print("Lon: " + lon)
+        print("Lat: " + str(lat))
+        print("Lon: " + str(lon))
         if lat and lon:
             res = self.api.get(
                 'way["highway"](around:10, ' + str(lat) + ', ' + str(lon) + ');(._;>;);out;')

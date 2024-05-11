@@ -58,17 +58,16 @@ class HardwareInterface:
                 return None
             return self.acceleromiter.acceleration
 
+    class OverpassInterface:
+        def __init__(self):
+            self.api = overpass.API(timeout=1000)
 
-class OverpassInterface:
-    def __init__(self):
-        self.api = overpass.API(timeout=1000)
-
-    def GetCurrentMaxSpeed(self, lat, lon):
-        if lat != "" and lon != "":
-            res = self.api.get(
-                'way["highway"](around:10, ' + lat + ', ' + lon + ');(._;>;);out;')
-            for feature in res.features:
-                print(feature)
+        def GetCurrentMaxSpeed(self, lat, lon):
+            if lat != "" and lon != "":
+                res = self.api.get(
+                    'way["highway"](around:10, ' + lat + ', ' + lon + ');(._;>;);out;')
+                for feature in res.features:
+                    print(feature)
 
 
 @dataclass

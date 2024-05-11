@@ -14,13 +14,10 @@ import sys
 pygame.init()
 imkatara = pygame.mixer.Sound('assets/audio/voices/katara/imkatara.mp3')
 
-# assets\audio\voices\katara\imkatara.mp3
 
-# Setup alert-generator object
-alertGenerator = Generator("database/alerts/alerts.db")
+# Set up objects
 vehicle = Vehicle()
-
-
+alertGenerator = Generator("database/alerts/alerts.db")
 alertDetector = Detector(vehicle, alertGenerator)
 
 
@@ -35,7 +32,6 @@ def collectVehicleData():
     """ Docstring """
     while True:
         vehicle.collectVehicleData()
-        # print(vehicle.xAcceleration)
 
 
 def runAlertDetector():
@@ -46,24 +42,7 @@ def runAlertDetector():
 # We can pass threaded functions the generator object so that it can add alerts to the queue when needed
 
 
-def other(generator):
-    generator.registerAlert(
-        Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
-    generator.registerAlert(
-        Alert(alertType.LANE_CHANGE, alertSound.LANE_CHANGE))
-    generator.registerAlert(
-        Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))
-    generator.registerAlert(
-        Alert(alertType.DECELERATION_TOO_FAST, alertSound.DECELERATION_TOO_FAST))
-    generator.registerAlert(
-        Alert(alertType.CORNER_TOO_HARD, alertSound.CORNER_TOO_HARD))
-    generator.registerAlert(
-        Alert(alertType.SEATBELT_DISCONNECTED, alertSound.SEATBELT_DISCONNECTED))
-
-
 if __name__ == "__main__":
-
-    # imkatara.play()
 
     event = threading.Event()
     event.clear()
@@ -72,7 +51,6 @@ if __name__ == "__main__":
     threads.append(threading.Thread(target=processGeneratedAlerts))
     threads.append(threading.Thread(target=collectVehicleData))
     threads.append(threading.Thread(target=runAlertDetector))
-    # threads.append(threading.Thread(target=other, args=(alertGenerator,)))
 
     # Begin all threads
     for thread in threads:

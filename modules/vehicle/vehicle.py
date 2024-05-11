@@ -6,6 +6,7 @@ import board  # GPIO pin auto detection library
 import digitalio  # Digital GPIO library
 import busio  # I2C library
 import adafruit_lis3dh  # Hardware specific acceleromiter library
+import overpass
 
 
 class HardwareInterface:
@@ -58,6 +59,18 @@ class HardwareInterface:
             return self.acceleromiter.acceleration
 
 
+class OverpassInterface:
+    def __init__(self):
+        self.api = overpass.API(timeout=1000)
+
+    def GetCurrentMaxSpeed(self, lat, lon):
+        if lat != "" and lon != "":
+            res = self.api.get(
+                'way["highway"](around:10, ' + lat + ', ' + lon + ');(._;>;);out;')
+            for feature in res.features:
+                print(feature)
+
+
 @dataclass
 class Vehicle:
     """ Docstring """
@@ -82,6 +95,7 @@ class Vehicle:
     gpsLongitude: str = ""
     gpsQuality: float = 0.0
     satsConnected: int = 0
+    currentMaxSpeed: int
 
     def setLaneAttributes(self, inLane: bool, isChanging: bool):
         """ Docstring """
@@ -101,6 +115,8 @@ class Vehicle:
         """ Docstring """
         gpsData = self.hardwareInterface.GPS.collectGpsData(5)
         accData = self.hardwareInterface.Accelerometer.collectAccData(5)
+        maxSpeed = self.overpassInterface.GetCurrentMaxSpeed(
+            self.gpsLatitude, self.gpsLongitude)
 
         if (gpsData != None):
             self.gpsLatitude = gpsData.latitude
@@ -111,6 +127,8 @@ class Vehicle:
             # Figure out the correct indexes then remove this comment
             self.zAcceleration = accData[1]
             self.xAcceleration = accData[0]
+
+        if
 
         # The data should probably be offloaded to a csv or text file or db for future reference
 

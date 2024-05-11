@@ -34,5 +34,12 @@ print(res2)
 
 ####
 
+# around:radius .. lattitude longditude
 res3 = api.get('way["highway"](around:10, 52.634998, 1.271750);(._;>;);out;')
 print(res3)
+
+for feature in res3.features:
+    if feature.properties:
+        print(feature.properties)
+        if 'highway' in feature.properties:
+            print(feature.properties["maxspeed"])

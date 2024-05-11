@@ -31,7 +31,8 @@ res2 = api.get(mq)
 
 print(res2)
 
-wq = overpass.WayQuery('[name="Highway 51"]')
-res3 = api.get(wq)
 
+####
+
+res3 = api.get('way["highway"](around:10, 52.634998, 1.271750);(._;>;);out;')
 print(res3)

@@ -68,7 +68,7 @@ class OverpassInterface:
         print("Lon: " + lon)
         if lat and lon:
             res = self.api.get(
-                'way["highway"](around:10, ' + lat + ', ' + lon + ');(._;>;);out;')
+                'way["highway"](around:10, ' + str(lat) + ', ' + str(lon) + ');(._;>;);out;')
             for feature in res.features:
                 print(feature)
 

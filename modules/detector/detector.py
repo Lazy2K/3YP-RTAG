@@ -11,6 +11,7 @@ class Detector:
         self.generator = generator
 
         self.xAccelerationThreashold = 1.0
+        self.xDecelerationThreashold = -1.0
         self.zAccelerationThreashold = 1.0
 
         self.timeOutSeconds = 10.0
@@ -30,3 +31,10 @@ class Detector:
             ) + self.timeOutSeconds
             self.generator.registerAlert(
                 Alert(alertType.ACCELERATION_TOO_FAST, alertSound.ACCELERATION_TOO_FAST))
+
+        if self.vehicle.xAcceleration * -1 > self.xDecelerationThreashold * -1 and self.timeTillNext["DECELERATION_TOO_FAST"] < time.time():
+            # Set cooldown timer
+            self.timeTillNext["DECELERATION_TOO_FAST"] = time.time(
+            ) + self.timeOutSeconds
+            self.generator.registerAlert(
+                Alert(alertType.DECELERATION_TOO_FAST, alertSound.DECELERATION_TOO_FAST))

@@ -95,7 +95,7 @@ class Vehicle:
     gpsLongitude: str = ""
     gpsQuality: float = 0.0
     satsConnected: int = 0
-    currentMaxSpeed: int
+    currentMaxSpeed: int = 0
 
     def setLaneAttributes(self, inLane: bool, isChanging: bool):
         """ Docstring """

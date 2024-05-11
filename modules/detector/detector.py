@@ -10,9 +10,9 @@ class Detector:
         self.vehicle = vehicle
         self.generator = generator
 
-        self.xAccelerationThreashold = 1.0
-        self.xDecelerationThreashold = -1.0
-        self.zAccelerationThreashold = 1.0
+        self.xAccelerationThreashold = 3.0
+        self.xDecelerationThreashold = -3.0
+        self.zAccelerationThreashold = 3.0
 
         self.timeOutSeconds = 10.0
         self.timeTillNext = {  # This seems like a bad solution and inefficient

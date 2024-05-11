@@ -128,8 +128,6 @@ class Vehicle:
             self.zAcceleration = accData[1]
             self.xAcceleration = accData[0]
 
-        if
-
         # The data should probably be offloaded to a csv or text file or db for future reference
 
         # if (accData):

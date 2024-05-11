@@ -1,5 +1,5 @@
 # Local modules -- Need to be careful of name space using import *
-from modules.lanevision.lanevision import *
+# from modules.lanevision.lanevision import *
 from modules.generator.generator import *
 from modules.detector.detector import *
 from modules.vehicle.vehicle import *

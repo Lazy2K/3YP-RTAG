@@ -66,7 +66,7 @@ class OverpassInterface:
     def GetCurrentMaxSpeed(self, lat, lon):
         print("Lat: " + lat)
         print("Lon: " + lon)
-        if lat != "" and lon != "":
+        if lat and lon:
             res = self.api.get(
                 'way["highway"](around:10, ' + lat + ', ' + lon + ');(._;>;);out;')
             for feature in res.features:

@@ -93,8 +93,8 @@ class Vehicle:
     zAcceleration: float = 0.0  # Forwards / backwards acceleration
 
     # GPS Data
-    gpsLatitude: str
-    gpsLongitude: str
+    gpsLatitude: str = ""
+    gpsLongitude: str = ""
     gpsQuality: float = 0.0
     satsConnected: int = 0
     currentMaxSpeed: int = 0

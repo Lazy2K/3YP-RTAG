@@ -3,6 +3,7 @@ import digitalio
 import adafruit_lis3dh
 import board
 import time
+import csv
 
 
 class Accelerometer:
@@ -20,5 +21,11 @@ class Accelerometer:
 
 acc = Accelerometer()
 
-for i in range(0, 1000):
-    print(acc.collectAccData().x)
+
+with open('data.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile, delimiter=' ',
+                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
+
+    for i in range(0, 1000):
+        data = acc.collectAccData()
+        writer.writerow([data.x, data.y, data.z])

@@ -14,7 +14,7 @@ class Detector:
         self.xDecelerationThreashold = -3.0
         self.zAccelerationThreashold = 3.0
 
-        self.timeOutSeconds = 10.0
+        self.timeOutSeconds = 3.0
         self.timeTillNext = {  # This seems like a bad solution and inefficient
             "LANE_CHANGE": time.time(),
             "SPEED_LIMIT_EXCEEDED": time.time(),

@@ -21,4 +21,4 @@ class Accelerometer:
 acc = Accelerometer()
 
 for i in range(0, 1000):
-    print(acc.collectAccData())
+    print(acc.collectAccData().x)

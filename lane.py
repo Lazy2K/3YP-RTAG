@@ -65,8 +65,8 @@ def sort_lines(lines: MatLike):
 
 INPUT_VIDEO = cv.VideoCapture("assets/video/dashcam/dc1.mp4")
 INPUT_CAMERA = cv.VideoCapture(0)
-while INPUT_CAMERA.isOpened():
-    ret, frame = INPUT_CAMERA.read()
+while INPUT_VIDEO.isOpened():
+    ret, frame = INPUT_VIDEO.read()
 
     print("Frame")
 

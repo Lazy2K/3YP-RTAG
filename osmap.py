@@ -19,9 +19,9 @@ RIGHT = 1.279
 
 # print(y.text)
 #
+"""
 
 
-api = overpass.API(timeout=1000)
 res = api.get('node["name"="Salt Lake City"]', responseformat="xml")
 
 print(res)
@@ -31,14 +31,15 @@ res2 = api.get(mq)
 
 print(res2)
 
-
+"""
 ####
 
-# around:radius .. lattitude longditude
-res3 = api.get('way["highway"](around:10, 52.634998, 1.271750);(._;>;);out;')
-print(res3)
 
-for feature in res3.features:
+api = overpass.API(timeout=1000)
+response = api.get(
+    'way["highway"](around:10, 52.634998, 1.271750);(._;>;);out;')
+
+for feature in response.features:
     if feature.properties:
         print(feature.properties)
         if 'highway' in feature.properties:

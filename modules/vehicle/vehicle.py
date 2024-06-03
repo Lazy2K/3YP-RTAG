@@ -126,7 +126,7 @@ class Vehicle:
             self.gpsLongitude = gpsData.longitude
             self.gpsQuality = gpsData.gps_qual
 
-            print(gpsData.spd_over_grnd_kmph)
+            print(gpsData)
 
         if (accData != None):
             # Figure out the correct indexes then remove this comment

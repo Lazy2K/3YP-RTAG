@@ -62,15 +62,19 @@ class HardwareInterface:
 class OverpassInterface:
     def __init__(self):
         self.api = overpass.API(timeout=1000)
+        self.ratelimit = 10
 
     def GetCurrentMaxSpeed(self, lat, lon):
-        print("Lat: " + str(lat))
-        print("Lon: " + str(lon))
-        if lat and lon:
-            res = self.api.get(
-                'way["highway"](around:10, ' + str(lat) + ', ' + str(lon) + ');(._;>;);out;')
-            for feature in res.features:
-                print(feature)
+        timeout = 0
+        if (time.time() > timeout):
+            print("Lat: " + str(lat))
+            print("Lon: " + str(lon))
+            if lat and lon:
+                res = self.api.get(
+                    'way["highway"](around:10, ' + str(lat) + ', ' + str(lon) + ');(._;>;);out;')
+                for feature in res.features:
+                    print(feature)
+            timeout = time.time() + self.ratelimit
 
 
 @dataclass

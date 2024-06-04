@@ -65,7 +65,7 @@ class OverpassInterface:
         self.ratelimit = 10
 
     def GetCurrentMaxSpeed(self, lat, lon):
-        timeout = 0
+        timeout
         if (time.time() > timeout):
             print("Lat: " + str(lat))
             print("Lon: " + str(lon))

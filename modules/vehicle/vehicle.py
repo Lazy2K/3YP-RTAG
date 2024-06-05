@@ -136,6 +136,7 @@ class Vehicle:
             # Figure out the correct indexes then remove this comment
             self.zAcceleration = accData[1]
             self.xAcceleration = accData[0]
+            print(self.zAcceleration)
 
         # The data should probably be offloaded to a csv or text file or db for future reference
 

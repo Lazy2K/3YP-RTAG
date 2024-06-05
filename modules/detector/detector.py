@@ -41,4 +41,4 @@ class Detector:
 
 
         if self.timeTillNext["SPEED_LIMIT_EXCEEDED"] < time.time():
-            self.generator.registerAlert(ALert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
+            self.generator.registerAlert(Alert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))

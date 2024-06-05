@@ -14,7 +14,7 @@ class Detector:
         self.xDecelerationThreashold = -3.0
         self.zAccelerationThreashold = 1.0
 
-        self.timeOutSeconds = 3.0
+        self.timeOutSeconds = 15.0
         self.timeTillNext = {  # This seems like a bad solution and inefficient
             "LANE_CHANGE": time.time(),
             "SPEED_LIMIT_EXCEEDED": time.time(),
@@ -38,3 +38,7 @@ class Detector:
             ) + self.timeOutSeconds
             self.generator.registerAlert(
                 Alert(alertType.DECELERATION_TOO_FAST, alertSound.DECELERATION_TOO_FAST))
+
+
+        if self.timeTillNext["SPEED_LIMIT_EXCEEDED"] < time.time():
+            self.generator.registerAlert(ALert(alertType.SPEED_LIMIT_EXCEEDED, alertSound.SPEED_LIMIT_EXCEEDED))
